@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet">   
+    <title>MindNest</title>
+</head>
+<body class="theme-book1" data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md p-0 fixed-top mb-5" aria-label="Main navigation">
+        <div class="container-lg text-white py-3 theme">
+            <a href="#hero-section" class="navbar-brand text-white fw-bold fs-3"><i class="bi bi-book"></i> MindNest</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="#hero-section" class="nav-link me-2">Home</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link me-2">Pricing</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link me-2">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Books</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item"
+                                href="#" role="button" onclick="switchBook(1)">Whispers of the Mind</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                href="#" role="button" onclick="switchBook(2)">Growth Path</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                href="#" role="button" onclick="switchBook(3)">The Calm Within</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#reviews" class="nav-link me-2">Reviews</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link me-2">Contact</a></li>
+                </ul>
+            </div> 
+        </div>
+    </nav>
+    <!-- Hero section -->
+    <section id="hero-section" class="mt-5">
+        <div class="container-md">
+            <div class="row d-flex flex-sm-column flex-md-row justify-content-md-around align-items-center">
+                <div class="col-11 col-md-4">
+                    <h2 class="heading"></h2>
+                    <p class="text-muted"></p>
+                    <a class="d-block my-3 other-book" data-bs-toggle="offcanvas" href="#otherbooksSideNav" role="button" aria-controls="otherbooksSideNav">
+                        Check out our other books
+                    </a>
+                    <!-- the Side nav in offcanvas -->
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="otherbooksSideNav" aria-labelledby="otherbooksSideNavLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="otherbooksSideNavLabel">Our Books</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <a class="d-block text-muted text-decoration-none my-3 border-bottom border-secondary border-2 pb-3"
+                            href="#" role="button" onclick="switchBook(1)">Whispers of the Mind</a>
+                            <a class="d-block text-muted text-decoration-none my-3 border-bottom border-secondary border-2 pb-3"
+                            href="#" role="button" onclick="switchBook(2)">Growth Path</a>
+                            <a class="d-block text-muted text-decoration-none my-3 border-bottom border-secondary border-2 pb-3"
+                            href="#" role="button" onclick="switchBook(3)">The Calm Within</a>
+                        </div>
+                    </div>
+
+                    <a href="#pricing" class="btn btn-secondary mb-4">Buy Now</a>
+                </div>
+                <div class="col-8 col-md-4">
+                    <img src="" alt="MindNest Book Cover" class="img-fluid img-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="my-5">
+        <div class="container bg-light text-center py-5">
+            <h2>Pricing Plan</h2>
+            <p class="pricing-description py-3"></p>
+
+            <!-- Digital copy -->
+            <div class="row justify-content-center g-3">
+                <div class="col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-text my-4">Digital Copy</h2>
+                            <p class="card-text digital-desc my-4"></p>
+                            <h3 class="card-text fw-bold digital-price fs-1 mb-5"></h3>
+                            <a href="#" class="btn btn-primary digital-btn mb-4"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  Paperback Edition -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="card card-border">
+                        <div class="card-header">Most Popular</div>
+                        <div class="card-body">
+                            <h2 class="card-text my-4">Paperback Edition</h2>
+                            <p class="card-text paperback-desc my-4"></p>
+                            <h3 class="card-text fw-bold paperback-price fs-1 mb-5"></h3>
+                            <a href="#" class="btn btn-primary paperback-btn mb-3"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HardCover -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <h2 class="card-text my-4">Deluxe Edition</h2>
+                            <p class="card-text hard-cover-desc my-4"></p>
+                            <h3 class="card-text fw-bold mb-5 fs-1 hard-cover-price"></h3>
+                            <a href="#" class="btn btn-primary mb-3 hard-cover-btn"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section  -->
+    <section id="about" class="my-5">
+        <div class="container-md">
+            <div class="row justify-content-md-around">
+                <div class="col-md-5 col-lg-4 mb-4">
+                    <img alt="About MindNest Book" class="img-fluid about-pic">
+                </div>
+
+                <div class="col-md-6 col-lg-6">
+                    <div class="accordion" id="accordionId">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    What is the book about?
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse show" id="collapseOne" data-bs-parent="accordionId">
+                                <div class="accordion-body topic"></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Who is the author?
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse" id="collapseTwo" data-bs-parent="accordionId">
+                                <div class="accordion-body author"></div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    What will I learn from this book?
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse" id="collapseThree" data-bs-parent="accordionId">
+                                <div class="accordion-body learn-from"></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                                    Why should you read it?
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse" id="collapsefour" data-bs-parent="accordionId">
+                                <div class="accordion-body read-it"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Reviews -->
+    <section id="reviews">
+        <div class="container-sm bg-light py-5">
+            <h2 class="text-center">Book Reviews</h2>
+            <p class="col-10 text-center review-para mx-auto"></p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <ul class="list-group">
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- get in touch -->
+    <section id="contact">
+        <div class="container-md mt-3">
+            <h3 class="text-center">Contact Us</h3>
+            <p class="text-center">Want to Order? fill out the form below:</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form class="mb-3">
+                        <!-- input Name -->
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Mario Alekhandro" required>
+                        
+                        <!-- input email -->
+                        <label for="email" class="form-label mt-4">Email address</label>
+                        <input type="email" id="email" class="form-control mb-4" placeholder="e.g mario@example.com" required>
+                            
+                        <!-- address -->
+                        <label for="location">Your address (location)</label>
+                        <input type="text" id="location" class="form-control mb-4" placeholder="your location" required>
+
+                        <!-- Format copy -->
+                        <label for="format" class="form-label">Preferred Format</label>
+                        <select class="form-select" id="format" required>
+                            <option value="" selected disabled>Select your preferred format</option>
+                            <option value="digital">Digital Copy</option>
+                            <option value="paperback">Paperback Edition</option>
+                            <option value="deluxe">Deluxe Edition</option>
+                        </select>
+
+
+                        <div class="form-floating my-3">
+                            <textarea class="form-control" id="floatingTextarea" style="height: 140px;"></textarea>
+                            <label for="floatingTextarea">You have a question ?</label>
+                        </div> 
+
+                        <button type="submit" class="btn btn-secondary d-block mx-auto">Submit Order</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-6 mx-auto text-center">
+                <p class="text-muted">Questions about your order? Email us at <strong>orders@mindnest.com</strong></p>
+                <p class="text-muted fw-bold">we will contact you for the payment</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-light py-5 theme">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="bi bi-book"></i> MindNest</h5>
+                    <p>Transforming lives through powerful books on mindfulness, growth, and inner peace.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6>Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#hero-section" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="#pricing" class="text-light text-decoration-none">Pricing</a></li>
+                        <li><a href="#about" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="#reviews" class="text-light text-decoration-none">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6>Our Books</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none" onclick="switchBook(1)">Whispers of the Mind</a></li>
+                        <li class="my-2"><a href="#" class="text-light text-decoration-none" onclick="switchBook(2)">Growth Path</a></li>
+                        <li><a href="#" class="text-light text-decoration-none" onclick="switchBook(3)">The Calm Within</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6>Contact</h6>
+                    <ul class="list-unstyled">
+                        <li>Email: support@mindnest.com</li>
+                        <li>Orders: orders@mindnest.com</li>
+                        <li class="mt-2">
+                            <a href="#" class="text-light me-2"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-light me-2"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; <span class="year"></span> MindNest. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-light text-decoration-none">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
