@@ -1,3 +1,4 @@
+// Data structure containing all book information
 const books =[
     {
         id: 1,
@@ -7,6 +8,8 @@ const books =[
         cover: 'assets/images/book1/cover.jpg',
         icon: 'assets/images/book1/icon.jpg',
         theme: 'theme-book1',
+
+        // The pricing plan
         pricingDescription: "Discover the version that suits your journey best — whether you prefer a digital read or the feeling of holding a book in your hands.",
         priceCards: {
             digital: {
@@ -25,10 +28,14 @@ const books =[
                 btn: 'Order Now'
             }
         },
+
+        // About Section
         author: "Written by an anonymous thinker known as “The Whisperer,” blending logic and emotion into deep reflection",
         topic: "It explores the silent power of the mind and how inner calm can reshape your outer world.",
         learnFrom: "How to find clarity, control overthoughts, and peace through mindful awareness.",
         readit: "Because understanding your inner voice is the first step to mastering your life.",
+        
+        // Review Section
         paragraphReview: "Readers describe Whispers of the Mind as a quiet invitation to reconnect with their thoughts. This book encourages gentle awareness and mindful reflection in a world full of distractions.",
         reviews :[
          {
@@ -71,6 +78,8 @@ const books =[
         cover: 'assets/images/book2/cover.jpg',
         icon: 'assets/images/book2/icon.jpg',
         theme: 'theme-book2',   
+        
+        // Pricing plan
         pricingDescription: "Choose the edition that helps your growth take root and flourish — from digital simplicity to classic hardcover strength.",
         priceCards: {
             digital: {
@@ -89,10 +98,14 @@ const books =[
                 btn: 'Buy Paperback'
             }
         },
+
+        // About Section
         author: "Written by a mysterious mentor known only as “The Seeker,” representing the endless pursuit of personal evolution.",
         topic: "It’s about nurturing growth step by step, understanding that progress is built through patience and reflection.",
         learnFrom: "How to grow without rushing, build resilience, and find purpose in small daily improvements.",
         readit: "Because every journey begins with a single step — and this book helps you take it with confidence.",
+        
+        // Review Section 
         paragraphReview: "Growth Path focuses on self-discipline, consistent effort, and building habits that last. It’s not about perfection — it’s about steady progress and learning from every step.",
         reviews :[
          {
@@ -135,6 +148,8 @@ const books =[
         cover: 'assets/images/book3/cover.jpg',
         icon: 'assets/images/book3/icon.jpg',
         theme: 'theme-book3',      
+        
+        // pricing plan
         pricingDescription: "Find your perfect format — a book to guide you through the challenges, one page at a time.",
         priceCards: {
             digital: {
@@ -153,10 +168,14 @@ const books =[
                 btn: 'Purchase Now'
             }
         },
+
+        // About Section
         author: "Authored by an anonymous observer of life — a storyteller who found peace not in words, but between them.",
         topic: "It’s a gentle guide toward inner balance, mindfulness, and the art of staying calm amid life’s chaos.",
         learnFrom: "Ways to release tension, find stability in uncertainty, and breathe through challenges.",
         readit: "Because true calm isn’t found outside you — it’s built within, one moment of awareness at a time.",
+        
+        // Review Section
         paragraphReview: "The Calm Within helps readers build inner peace through simple, actionable techniques. It’s a guide to finding quiet in daily chaos — practical, soothing, and deeply human.",
         reviews :[
          {
@@ -193,7 +212,7 @@ const books =[
     }
 ]
 
-
+// Switch between books and close the sidebar
 function switchBook(bookId) {
     // Close offcanvas when book is selected
     const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('otherbooksSideNav'));
@@ -276,6 +295,7 @@ function updateReview(review){
         const listGroupItem = document.createElement('li');
         listGroupItem.className ='list-group-item py-3';
 
+        // Create the review stars
         const starsHTML = stars(r.star);
         
         // Create h5 for the reviwers name
@@ -286,6 +306,7 @@ function updateReview(review){
         const comment = document.createElement('p');
         comment.textContent = r.comment;
 
+        // Append all the create element 
         listGroupItem.innerHTML = starsHTML
         listGroupItem.appendChild(reviewerName);
         reviewerName.after(comment);
@@ -311,7 +332,7 @@ function stars(rating){
 
 
 // CONTACT SECTION
-// Validation rules
+// Validation rules for contact form fields  
 const validationRules = {
     name: {
         regex: /^[A-Za-z\s]{2,40}$/,
@@ -329,7 +350,7 @@ const validationRules = {
         message: 'Please enter a valid location'
     },
     format: {
-        regex: /.+/, // <-- SIMPLE FIX: This regex means "at least one character"
+        regex: /.+/, // at least one character
         event: 'change',
         message: 'Please select a book format'
     }
@@ -413,7 +434,10 @@ function initValidation() {
     document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault();
         if (validateForm()) {
-            alert('Order submitted successfully! We will contact you for payment.');
+            // Show Bootstrap toast
+            const toastElement = document.getElementById('liveToast');
+            const toast = new bootstrap.Toast(toastElement);
+            toast.show();
             this.reset();
         }
     });
