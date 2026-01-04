@@ -37,6 +37,16 @@ MindNest is a single-page bookstore application that demonstrates dynamic conten
 - **Bootstrap Icons**: UI icons
 - **Netlify**: Hosting and deployment
 
+## 🔍 Code Quality & Security
+
+This project has been analyzed with **SonarQube** to ensure production-ready code quality:
+
+- ✅ **Quality Gate: PASSED** - Meets industry standards
+- ✅ **Security Rating: A** - No critical vulnerabilities  
+- ✅ **Fixed ReDoS vulnerabilities** - Secure regex patterns
+- ✅ **Reduced code duplication** - Maintainable codebase
+- ✅ **Added error handling** - Robust user experience
+
 ---
 
 ## 📂 Project Structure
@@ -123,6 +133,7 @@ Each book has a carefully selected color palette:
 - Bootstrap component integration
 - Clean, maintainable code structure
 - Git version control and GitHub workflows
+- Code quality tools - Using SonarQube for security and maintainability
 
 ---
 
@@ -140,7 +151,7 @@ Each book has a carefully selected color palette:
 
 ## 👤 Author
 
-**Zahira**
+**EL-MAHJOUR Zahira**
 
 - GitHub: [@ZahirawDW](https://github.com/ZahirawDW)
 - LinkedIn: [Zahira El-Mahjour][https://www.linkedin.com/in/zahira-el-mahjour]
@@ -150,8 +161,9 @@ Each book has a carefully selected color palette:
 
 ## 🙏 Acknowledgments
 
-- Bootstrap team for the amazing framework
-- Netlify for seamless hosting
+- **Bootstrap** team for the amazing framework
+- **Netlify** for seamless hosting
+- **SonarQube** for code quality analysis and security insights
 - The web development community for inspiration
 
 ---
