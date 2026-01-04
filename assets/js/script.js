@@ -224,6 +224,12 @@ function switchBook(bookId) {
     
 }
 
+function updatePricingCard(type, cardData) {
+    document.querySelector(`.${type}-desc`).textContent = cardData.description;
+    document.querySelector(`.${type}-price`).textContent = cardData.price;
+    document.querySelector(`.${type}-btn`).textContent = cardData.btn;
+}
+
 function showBook(bookId) {
     const book = books.find(b => b.id === bookId);
     
@@ -243,20 +249,10 @@ function showBook(bookId) {
 
     // Update the pricing content
     document.querySelector('.pricing-description').textContent = book.pricingDescription;
-    // digital card
-    document.querySelector('.digital-desc').textContent = book.priceCards.digital.description;
-    document.querySelector('.digital-price').textContent = book.priceCards.digital.price;
-    document.querySelector('.digital-btn').textContent = book.priceCards.digital.btn;
 
-    // paperback card
-    document.querySelector('.paperback-desc').textContent = book.priceCards.paperback.description;
-    document.querySelector('.paperback-price').textContent = book.priceCards.paperback.price;
-    document.querySelector('.paperback-btn').textContent = book.priceCards.paperback.btn;
-
-    // hardcover card
-    document.querySelector('.hard-cover-desc').textContent = book.priceCards.hardCover.description;
-    document.querySelector('.hard-cover-price').textContent = book.priceCards.hardCover.price;
-    document.querySelector('.hard-cover-btn').textContent = book.priceCards.hardCover.btn;
+    updatePricingCard('digital', book.priceCards.digital);
+    updatePricingCard('paperback', book.priceCards.paperback);
+    updatePricingCard('hard-cover', book.priceCards.hardCover);
 
     // Update the about section content
     document.querySelector('.about-pic').src = book.aboutPic;
@@ -270,7 +266,11 @@ function showBook(bookId) {
     updateReview(book.reviews);
 
     // Save to localStorage
-    localStorage.setItem('lastViewedBook', bookId);
+    try{
+        localStorage.setItem('lastViewedBook', bookId);
+    }catch(e){
+        console.error('Could not save to localStorage', e);
+    }
 }
 
 // Fuction favicon update
@@ -340,7 +340,7 @@ const validationRules = {
         message: 'Full Name must be between 2-40 letters only and no numbers'
     },
     email: {
-        regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        regex: /^[^\s@]{1,64}@[^\s@]{1,255}\.[^\s@]{2,}$/,
         event: 'input',
         message: 'Please enter a valid email address'
     },
