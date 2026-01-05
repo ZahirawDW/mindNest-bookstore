@@ -154,7 +154,7 @@ Each book has a carefully selected color palette:
 **EL-MAHJOUR Zahira**
 
 - GitHub: [@ZahirawDW](https://github.com/ZahirawDW)
-- LinkedIn: [Zahira El-Mahjour][https://www.linkedin.com/in/zahira-el-mahjour]
+- LinkedIn: [Zahira El-Mahjour](https://www.linkedin.com/in/zahira-el-mahjour)
 
 ---
 
