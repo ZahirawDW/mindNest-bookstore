@@ -71,21 +71,10 @@ mindnest-bookstore/
 
 ## 🚀 How It Works
 
-### Book Data Structure
-All book information is stored in a JavaScript array of objects, making it easy to add or modify books:
-```javascript
-const books = [
-  {
-    id: 1,
-    title: "Whispers of the Mind",
-    description: "...",
-    theme: "theme-book1",
-    priceCards: { ... },
-    reviews: [ ... ]
-  }
-  // ... more books
-]
-```
+### Data Flow
+- Book content is loaded dynamically from an external JSON file
+- Each book has its own theme, pricing, and reviews
+- Content updates instantly when switching between books
 
 ### Dynamic Content Updates
 When a user selects a book, the `showBook()` function updates:
