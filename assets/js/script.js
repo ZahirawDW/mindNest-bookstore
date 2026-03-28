@@ -1,37 +1,25 @@
 let books = [];
-// Fetch book data from JSONBlob and initialize the page
-const API_URL = 'https://api.jsonblob.com/019ca9d7-9771-7802-b6fa-371e7f73330a'; 
+
+const API_URL = './books.json';
+
+// Fetch the book data from the JSON file
 fetch(API_URL)
     .then(response => response.json())
     .then(data => {
-        if (Array.isArray(data)) {
-        books = data;
-        } else if (data.books) {
-            books = data.books;  // If data is { books: [...] }
-        } else {
-            books = [];  // Fallback
-        }
-        
-        // Load last viewed book
-        const lastBookId = localStorage.getItem('lastViewedBook');
-        if (lastBookId && books.some(b => b.id === parseInt(lastBookId))) {
-            showBook(parseInt(lastBookId));
-        } else {
-            showBook(1);
-        }
-        // Set the current year in the footer
-        document.querySelector('.year').textContent = new Date().getFullYear();
+        books = Array.isArray(data) ? data : (data.books || []);
 
-        // Initialize contact form validation
-        initValidation();
-        // Setup pricing buttons
+       // Initialize the page after books are loaded
+        const lastViewedBook = localStorage.getItem('lastViewedBook');
+        if (lastViewedBook && books.find(b => b.id == lastViewedBook)) {
+            showBook(parseInt(lastViewedBook));
+        } else if (books.length > 0) {
+            showBook(books[0].id);
+        }
+
+        // Setup your functions
         setupPricingButtons();
-    })
-    .catch(error => {
-        console.error('Error loading books:', error);
-        showBook(1);
+        initValidation();
     });
-
     
 // Switch between books and close the sidebar
 function switchBook(bookId) {
