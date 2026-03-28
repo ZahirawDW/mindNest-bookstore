@@ -63,6 +63,7 @@ mindnest-bookstore/
 │       ├── book1/
 │       ├── book2/
 │       └── book3/
+├── books.json
 ├── index.html
 └── README.md
 ```
@@ -72,9 +73,26 @@ mindnest-bookstore/
 ## 🚀 How It Works
 
 ### Data Flow
-- Book content is loaded dynamically from an external JSON file
+- Book content is loaded from a local `books.json` file (self-contained, no external API dependency)
 - Each book has its own theme, pricing, and reviews
 - Content updates instantly when switching between books
+- Last viewed book is saved to localStorage for persistent user experience
+
+### Data Architecture
+The project uses a simple but effective data structure:
+```json
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Book Title",
+      "description": "...",
+      "priceCards": { ... },
+      "reviews": [ ... ]
+    }
+  ]
+}
+```
 
 ### Dynamic Content Updates
 When a user selects a book, the `showBook()` function updates:
